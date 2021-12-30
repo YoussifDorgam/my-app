@@ -60,6 +60,7 @@ class StoryData {
   });
 }
 
+
 List<StoryData> stories = [
   StoryData(id: 1, title: "آدم عليه السلام ", text: adamStory ) ,
   StoryData(id: 2, title: "ادريس عليه السلام ", text: edrisStory ),
