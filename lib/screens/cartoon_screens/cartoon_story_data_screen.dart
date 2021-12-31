@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 
-
-class Test2Screen extends StatelessWidget {
+class CartoonStoriesDataScreen extends StatelessWidget {
   final  Storyid ;
   final Storytext ;
   final Storytitle ;
-  Test2Screen({required this.Storyid , required this.Storytext ,required this.Storytitle});
+  const CartoonStoriesDataScreen({Key? key, required this.Storyid , required this.Storytext ,required this.Storytitle}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

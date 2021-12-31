@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_broject/product_model.dart';
-import 'package:my_broject/story_screen.dart';
+import 'package:my_broject/models/product_model.dart';
+import 'package:my_broject/screens/anbiaa_screens/anbiaa_story_screen.dart';
+import 'package:my_broject/screens/cartoon_screens/cartoon_story_screen.dart';
+
+import 'about_us.dart';
+import 'elshaba_screens/elshaba_story_screen.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
@@ -19,7 +23,7 @@ class HomeLayout extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(12, 0, 2, 70),
               child: Row(children: const [
                 Text(
-                  'Welcome bro ',
+                  'Welcome back',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -37,29 +41,22 @@ class HomeLayout extends StatelessWidget {
               ])),
         ),
       ),
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:
-            [
-            const Padding(
-              padding: EdgeInsetsDirectional.only(top: 10),
-              child: Text(' list view' ,
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 30 ,
-              ),),
+          children: [
+            const SizedBox(
+              height: 30,
             ),
-            const SizedBox(),
             GridView.builder(
-              shrinkWrap: true,
-              physics: const ScrollPhysics(),
-              itemCount: products.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.80),
-              itemBuilder: (context, index) => CategoryCard(
-                product: products[index],
-              )),
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 0.80),
+                itemBuilder: (context, index) => CategoryCard(
+                      product: products[index],
+                    )),
           ],
         ),
       ),
@@ -73,16 +70,29 @@ class CategoryCard extends StatelessWidget {
     required this.product,
   }) : super(key: key);
   final Product product;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
-        onTap: ()
-        {
-          if(product.id == 1 ) {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StoryScreen(),));
-          }else{
-
+        onTap: () {
+          if (product.id == 1) {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AnbiaaStoriesScreen(),
+            ));
+          } else if (product.id == 2) {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const ElShabaStoriesScreen(),
+            ));
+          } else if (product.id == 3) {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const CartoonStoriesScreen(),
+            ));
+          } else {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AboutUs(),
+            ));
           }
         },
         child: Container(
