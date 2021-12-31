@@ -37,29 +37,31 @@ class HomeLayout extends StatelessWidget {
               ])),
         ),
       ),
-      body:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:
-          [
-          const Padding(
-            padding: EdgeInsetsDirectional.only(top: 10),
-            child: Text(' list view' ,
-            style: TextStyle(
-              fontWeight: FontWeight.w800,
-              fontSize: 30 ,
-            ),),
-          ),
-          const SizedBox(),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const ScrollPhysics(),
-            itemCount: products.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: 0.80),
-            itemBuilder: (context, index) => CategoryCard(
-              product: products[index],
-            )),
-        ],
+      body:SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children:
+            [
+            const Padding(
+              padding: EdgeInsetsDirectional.only(top: 10),
+              child: Text(' list view' ,
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 30 ,
+              ),),
+            ),
+            const SizedBox(),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+              itemCount: products.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.80),
+              itemBuilder: (context, index) => CategoryCard(
+                product: products[index],
+              )),
+          ],
+        ),
       ),
     );
   }
@@ -89,9 +91,13 @@ class CategoryCard extends StatelessWidget {
               color: product.color, borderRadius: BorderRadius.circular(15.0)),
           child: Column(
             children: [
-              Image.asset(
-                product.image,
+              SizedBox(
+                width: double.infinity,
                 height: 100,
+                child: Image.asset(
+                  product.image,
+                  height: 100,
+                ),
               ),
               const SizedBox(
                 height: 10,

@@ -20,31 +20,32 @@ List<Product> products = [
   Product(
     id: 1,
     title: "قصص الانبياءْ",
-    image: "assets/mosqe.png",
-    color: const Color(0xFF71b8ff),
+    image: "assets/image1.png",
+    color: const Color(0xff4a8be3),
     courses: 25,
   ),
   Product(
     id: 2,
     title: "قصص كرتون",
-    image: "assets/images/programming.png",
-    color: const Color(0xFFff6374),
+    image: "assets/image2.png",
+    color: const Color(0xffff6374),
     courses: 10,
   ),
   Product(
     id: 3,
     title: "قصص الصحابه",
-    image: "assets/images/finance.png",
+    image: "assets/image2.png",
     color: const Color(0xFFffaa5b),
     courses: 15,
   ),
   Product(
     id: 4,
     title: "about us",
-    image: "assets/images/ux.png",
+    image: "assets/image2.png",
     color: const Color(0xFF9ba0fc),
     courses: 18,
   ),
+
 ];
 
 
